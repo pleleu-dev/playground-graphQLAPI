@@ -1,0 +1,26 @@
+{
+  "name": "mix-and-match-api",
+  "version": "1.0.0",
+  "description": "GraphQL API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pleleu-dev/mix-and-match-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pleleu-dev/mix-and-match-api/issues"
+  },
+  "homepage": "https://github.com/pleleu-dev/mix-and-match-api#readme",
+  "dependencies": {
+    "apollo-datasource": "^0.7.3",
+    "apollo-server": "^2.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
