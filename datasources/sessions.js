@@ -10,8 +10,17 @@ class SessionAPI extends DataSource{
 
     }
 
-    getSessions(){
-        return sessions
+    getSessions(args){
+        const argsKeys = Object.keys(args);
+        let ret = [...sessions];
+        argsKeys.forEach(k =>{
+            ret = ret.filter(el => args[k] == el[k])
+        })
+        return ret
+    }
+    getSessionById(id){
+        const ret = sessions.filter(el=> el.id == id)
+        return ret[0];
     }
 }
 
