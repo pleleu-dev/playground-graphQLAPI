@@ -1,13 +1,18 @@
-
-
+const Query = require('./resolvers/query')
+const Session = require('./resolvers/session')
+const Mutation = require('./resolvers/mutation')
 const resolvers = {
-    Query : {
-        sessions : (parent, args, {dataSources}, info) => dataSources.sessionAPI.getSessions(args),
-        sessionById : (parent, {id}, {dataSources}, info) => dataSources.sessionAPI.getSessionById(id),
-        speakers : (parent, args, {dataSources}, info) => dataSources.speakerAPI.getSpeakers(args),
-        speakerById : (parent, {id}, {dataSources}, info) => dataSources.speakerAPI.getSpeakerById(id)
+    Query,
+    Mutation,
+    Session,
+    SessionOrError: {
+        __resolveType(obj){
+            if(obj.code){
+                return 'Error'
+            }
+            return 'Session'
+        }
     }
 }
-
 
 module.exports = resolvers

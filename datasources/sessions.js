@@ -19,8 +19,26 @@ class SessionAPI extends DataSource{
         return ret
     }
     getSessionById(id){
+        try {
+            const ret = sessions.filter(el=> el.id == id)
+            return ret[0];
+        } catch (error) {
+            return {
+                code : "ERROR", message : "erororo", token : "sdbqsd"
+            }
+        }
+
+    }
+    toggleFavoriteSession(id){
         const ret = sessions.filter(el=> el.id == id)
+        ret[0].favorite = !ret[0].favorite;
         return ret[0];
+    }
+
+    addNewSession(session){
+        session.id = 12
+        sessions.push(session)
+        return session;
     }
 }
 

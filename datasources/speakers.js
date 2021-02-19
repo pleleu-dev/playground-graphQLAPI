@@ -7,17 +7,9 @@ class SpeakerAPI extends RESTDataSource{
 
     }
 
-    async getSpeakers(args){
+    async getSpeakers(){
         const data = await this.get('/')
-        console.log(args, data)
-        if(!args) return data;
-
-        const argsKeys = Object.keys(args);
-        let ret = [...data];
-        argsKeys.forEach(k =>{
-            ret = ret.filter(el => args[k] == el[k])
-        })
-        return ret
+        return data;
     }
     async getSpeakerById(id){
         const data = await this.get(`/${id}`)
